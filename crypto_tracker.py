@@ -52,6 +52,8 @@ else:
 # Save historical data
 final_df.to_csv(file_name, index=False)
 
+final_df.to_excel("crypto_prices.xlsx", index=False)
+
 print("Historical crypto data saved successfully!")
 
 # Show only latest 10 records
@@ -64,8 +66,8 @@ print(latest_data)
 min_price = float(input("\nEnter minimum price in USD: "))
 
 # Filter crypto by price
-filtered_df = final_df[
-    final_df["Price (USD)"] >= min_price
+filtered_df = latest_data[
+    latest_data["Price (USD)"] >= min_price
 ]
 
 print("\nCryptocurrencies above the selected price:")
